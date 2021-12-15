@@ -3,9 +3,13 @@ import 'dart:io';
 import 'dart:math';
 
 enum Move {
-  rock,
-  paper,
-  scissors,
+  Rock,
+  Paper,
+  Scissors,
+}
+
+String played(String result) {
+  return result.replaceAll("Move.", "");
 }
 
 void main() {
@@ -17,21 +21,21 @@ void main() {
     if (input == 'r' || input == 'p' || input == 's') {
       var playerMove;
       if (input == 'r') {
-        playerMove = Move.rock;
+        playerMove = Move.Rock;
       } else if (input == 'p') {
-        playerMove = Move.paper;
+        playerMove = Move.Paper;
       } else {
-        playerMove = Move.scissors;
+        playerMove = Move.Scissors;
       }
       final random = rng.nextInt(3);
       final aiMove = Move.values[random];
-      print("You played: $playerMove");
-      print("AI played: $aiMove");
+      print("You played: " + played(playerMove.toString()));
+      print("AI played: " + played(aiMove.toString()));
       if (playerMove == aiMove) {
         print("It's a draw!");
-      } else if (playerMove == Move.rock && aiMove == Move.scissors ||
-          playerMove == Move.paper && aiMove == Move.rock ||
-          playerMove == Move.scissors && aiMove == Move.paper) {
+      } else if (playerMove == Move.Rock && aiMove == Move.Scissors ||
+          playerMove == Move.Paper && aiMove == Move.Rock ||
+          playerMove == Move.Scissors && aiMove == Move.Paper) {
         print("You win!");
       } else {
         print("You lose!");

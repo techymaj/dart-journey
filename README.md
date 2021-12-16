@@ -5,4 +5,5 @@ The source code includes improved coded follow-along projects with `Andrea Bizzo
 ## Follow-along projects:
 <ol>
 <li>Rock, Paper, Scissors Game</li>
+<li>Data Processing (Processing CSV files)</li>
 </ol>
